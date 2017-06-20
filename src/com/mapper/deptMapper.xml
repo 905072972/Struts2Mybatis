@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.dept">
+	<resultMap type="com.pojo.Dept" id="deptmap">
+	<result property="deptno" column="deptno"></result>
+	<collection property="emps" column="deptno" select="getempBydeptno">
+	
+	
+	</collection>
+	
+	</resultMap>
+	<select id="getempBydeptno" resultType="com.pojo.Emp" parameterType="Integer">
+	select *from emp where deptno=#{deptno}	
+	
+	</select>
+
+	<select id="getDept" resultMap="deptmap">
+	select * from dept where 1=1
+	<if test="dname!=null and dname!=''">
+		and dname like '%${dname}%'
+	
+	</if>
+ 	</select>
+	 
+
+
+
+</mapper>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper">
+	<select id="getEmp" resultType="com.pojo.Emp">
+	select * from Emp
+ 	</select>
+	 <insert id="addEmp" parameterType="com.pojo.Emp" >
+	   insert into emp(empno,ename,job) values(#{empno},#{ename},#{job})
+	  </insert>
+	   <delete id="delEmp" parameterType="com.pojo.Emp" >
+	   delete from emp where empno=#{empno}
+	 
+	  </delete>
+	  <update id="updateEmp" parameterType="com.pojo.Emp">	 
+	  update emp set ename=#{ename},job=#{job} where empno=#{empno}
+	  </update>
+	 <!-- 
+		根据id查询得到一个user对象
+	 -->
+	  <!--
+	 <select id="getUser" parameterType="int" resultType="my.com.entity.User">
+	 	select * from users where usid=#{id}
+	 </select> 
+	 <select id="getlogin" parameterType="my.com.entity.User" resultType="my.com.entity.User">
+	   select * from users where login=#{login} and pwd=#{pwd}
+	 </select>
+	 
+	 
+	 
+	 <select id="getAllUser" resultType="my.com.entity.User">
+	     select * from users 
+	 </select>
+	 <select id="getByUname" parameterType="my.com.entity.User" resultType="my.com.entity.User">
+	    select * from users where 1=1
+	    <if test="uname!=null">
+	   and  uname like '%${uname}%'
+	    </if> 
+	 </select> 
+	 <delete id="delByUsid" parameterType="java.lang.String"  >
+	    delete from users where usid=#{usid}
+	 </delete>
+	 <update id="" parameterType="my.com.entity.User"   >
+	    update users set uname=#{uname},  where usid=## 
+	 </update>
+	 <insert id="adduser" parameterType="my.com.entity.User" >
+	   insert into users(usid,uname,login,pwd) values(seq_users.nextval,#{uname},#{login},#{pwd})
+	  </insert>
+	  -->
+	    <!--
+	  <select id="selectEmp" resultType="com.mapper.Emp">
+	   select * from Emp	   
+	   </select>
+	  <select id="getOne" parameterType="int" resultType="com.mapper.Emp">
+	  select * from emp where empno=#{empNo}
+	  </select>
+	  
+	 <select id="selectEmpByName" parameterType="com.mapper.Emp" resultType="com.mapper.Emp">
+	    select * from emp where 1=1
+	    <if test="ename!=null">
+	   and ename like '%${ename}%'
+	    </if> 
+	 </select> 
+	 <resultMap type="com.mapper.Emp" id="empmapper">
+	 <result column="job" property="jobjob"/>
+	  <result column="job" property="job"/>
+	 </resultMap>
+	  <select id="getOne2" parameterType="int" resultMap="empmapper">
+	  select * from emp where empno=#{empNo}
+	  </select>
+	 
+	 
+	  <delete id="delEmp" parameterType="int">
+	  delete from emp where empno=#{empNo}
+	  </delete>
+	  <update id="pudateEmp" parameterType="com.mapper.Emp">	 
+	  update emp set ename=#{ename} where empno=#{empno}
+	  </update>
+	   <insert id="addEmp" parameterType="com.mapper.Emp" >
+	   insert into emp(empno,ename,job) values(#{empNo},#{ename},#{job})
+	  </insert>
+	  
+	  -->
+	 
+	 
+	 
+</mapper>
